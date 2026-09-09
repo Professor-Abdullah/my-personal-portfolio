@@ -21,18 +21,19 @@ const colorMap = {
 
 export function SkillTile({ name, icon: Icon, className, color = "yellow" }: SkillTileProps) {
   return (
-    <motion.div
-      whileHover={{ y: -4, x: -4 }}
+    <div
       className={cn(
-        "brutal-border shadow-brutal bg-white p-4 flex flex-col items-center justify-center gap-3 transition-colors duration-200 cursor-pointer",
+        "brutal-border shadow-brutal-sm sm:shadow-brutal bg-white px-3 py-2.5 sm:p-4 flex items-center justify-center text-center transition-all duration-200 cursor-default select-none hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5",
         colorMap[color],
         className
       )}
     >
-      {Icon && typeof Icon !== "string" && <Icon size={32} strokeWidth={1.5} />}
-      <span className="font-mono text-sm md:text-base font-bold text-center break-words leading-tight">
+      {Icon && typeof Icon !== "string" && (
+        <Icon size={18} className="sm:w-6 sm:h-6 shrink-0 mr-2 sm:mr-0 sm:mb-2" strokeWidth={1.75} />
+      )}
+      <span className="font-mono text-xs sm:text-sm font-bold text-center break-words leading-tight">
         {name}
       </span>
-    </motion.div>
+    </div>
   );
 }

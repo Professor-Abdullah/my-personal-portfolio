@@ -62,42 +62,45 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-white relative">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="contact" className="py-14 sm:py-20 md:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <ScrollReveal>
           <SectionHeading title="Get In Touch" color="red" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-8 sm:mt-12">
           
           {/* Left: Contact Info */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
+          <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
             <ScrollReveal delay={0.2}>
-              <div className="prose prose-lg mb-8">
-                <p className="text-xl font-bold font-mono uppercase">
+              <div className="prose prose-lg mb-4 sm:mb-8">
+                <p className="text-lg sm:text-xl font-bold font-mono uppercase">
                   Let's build something bold together.
                 </p>
-                <p className="text-gray-700 font-medium">
+                <p className="text-gray-700 text-sm sm:text-base font-medium leading-relaxed">
                   Whether you have a question, a project proposal, or just want to say hi, my inbox is always open.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {contactMethods.map((method, idx) => (
-                  <BrutalCard key={idx} className="p-4 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-black text-white flex items-center justify-center brutal-border shrink-0">
+                  <BrutalCard key={idx} className="p-3.5 sm:p-4 flex items-center gap-3.5 sm:gap-4 shadow-brutal-sm sm:shadow-brutal">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 bg-black text-white flex items-center justify-center brutal-border shrink-0">
                       <method.icon size={20} />
                     </div>
-                    <div>
-                      <p className="font-bold uppercase text-xs text-gray-500">{method.label}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-bold uppercase text-[11px] sm:text-xs text-gray-500">{method.label}</p>
                       {method.href ? (
-                        <a href={method.href} className="font-mono font-bold text-sm md:text-base hover:text-[#2563EB] transition-colors break-all">
+                        <a 
+                          href={method.href} 
+                          className="font-mono font-bold text-sm md:text-base hover:text-[#2563EB] transition-colors break-all min-h-[44px] flex items-center"
+                        >
                           {method.value}
                         </a>
                       ) : (
-                        <p className="font-mono font-bold text-sm md:text-base break-all">
+                        <p className="font-mono font-bold text-sm md:text-base break-all min-h-[44px] flex items-center">
                           {method.value}
                         </p>
                       )}
@@ -108,19 +111,20 @@ export function Contact() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
-              <div className="mt-4">
-                <h3 className="font-black text-xl uppercase mb-4">Find Me Online</h3>
-                <div className="flex flex-wrap gap-4">
+              <div className="mt-2 sm:mt-4">
+                <h3 className="font-black text-lg sm:text-xl uppercase mb-3 sm:mb-4">Find Me Online</h3>
+                <div className="flex flex-wrap gap-3 sm:gap-4">
                   {socialLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-14 h-14 flex items-center justify-center brutal-border bg-white shadow-brutal hover:bg-[#FACC15] hover:text-black hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
+                      className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center brutal-border bg-white shadow-brutal-sm sm:shadow-brutal hover:bg-[#FACC15] hover:text-black hover:-translate-y-1 transition-all"
                       title={link.name}
+                      aria-label={link.name}
                     >
-                      <link.icon size={28} strokeWidth={1.5} />
+                      <link.icon size={24} strokeWidth={1.5} />
                     </a>
                   ))}
                 </div>
@@ -131,8 +135,8 @@ export function Contact() {
           {/* Right: Contact Form */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.5} className="h-full">
-              <BrutalCard className="p-6 md:p-10 h-full bg-[#F8F8F8]">
-                <h3 className="font-black text-3xl uppercase tracking-tighter mb-8">Send A Message</h3>
+              <BrutalCard className="p-4 sm:p-6 md:p-10 h-full bg-[#F8F8F8] shadow-brutal-sm sm:shadow-brutal">
+                <h3 className="font-black text-2xl sm:text-3xl uppercase tracking-tighter mb-6 sm:mb-8">Send A Message</h3>
                 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

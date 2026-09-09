@@ -36,13 +36,13 @@ export function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 bg-white relative">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="skills" className="py-14 sm:py-20 md:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <ScrollReveal>
           <SectionHeading title="Technical Skills" color="green" />
         </ScrollReveal>
 
-        <div className="flex flex-col gap-16 mt-12">
+        <div className="flex flex-col gap-10 sm:gap-14 mt-8 sm:mt-12">
           {skillCategories.map((category, idx) => {
             const Icon = getIconForCategory(category.name);
             const colorName = getColorForCategory(category.name);
@@ -51,18 +51,18 @@ export function Skills() {
             return (
               <div key={category.name} className="relative">
                 <ScrollReveal delay={0.1}>
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className={`w-14 h-14 ${accentColor} brutal-border flex items-center justify-center`}>
-                      <Icon size={28} className={colorName === "yellow" ? "text-black" : "text-white"} />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className={`w-11 h-11 sm:w-14 sm:h-14 ${accentColor} brutal-border flex items-center justify-center shrink-0 shadow-brutal-sm`}>
+                      <Icon size={24} className={colorName === "yellow" ? "text-black" : "text-white"} />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight">
                       {category.name}
                     </h3>
                   </div>
                 </ScrollReveal>
 
-                <ScrollReveal staggerChildren delay={0.2}>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+                <ScrollReveal staggerChildren delay={0.15}>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 md:gap-5">
                     {category.skills.map((skill, i) => (
                       <SkillTile 
                         key={`${skill.name}-${i}`} 
@@ -75,7 +75,7 @@ export function Skills() {
                 
                 {/* Section Separator */}
                 {idx < skillCategories.length - 1 && (
-                  <div className="w-full h-1 bg-black mt-16 brutal-border opacity-20" />
+                  <div className="w-full h-1 bg-black mt-10 sm:mt-14 brutal-border opacity-15" />
                 )}
               </div>
             );

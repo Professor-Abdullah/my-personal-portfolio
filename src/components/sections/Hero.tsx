@@ -19,8 +19,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen pt-24 pb-16 md:pt-32 flex flex-col justify-center relative overflow-hidden bg-[#F8F8F8] dot-grid">
-      {/* Decorative Background Shapes */}
+    <section id="hero" className="min-h-screen pt-24 pb-12 sm:pt-28 md:pt-32 flex flex-col justify-center relative overflow-hidden bg-[#F8F8F8] dot-grid">
+      {/* Decorative Background Shapes (Desktop only) */}
       <motion.div 
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} 
         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -37,25 +37,34 @@ export function Hero() {
         className="absolute top-1/2 left-[40%] w-16 h-16 bg-[#EF4444] brutal-border -z-10 hidden lg:block"
       />
 
-      <div className="container mx-auto px-4 md:px-6 flex-1 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           
           {/* Left Content */}
           <div className="flex flex-col items-start z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block bg-black text-white px-4 py-2 font-mono font-bold uppercase text-sm md:text-base brutal-border mb-6"
-            >
-              Hey, I'm
-            </motion.div>
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block bg-black text-white px-3 py-1.5 sm:px-4 sm:py-2 font-mono font-bold uppercase text-xs sm:text-sm md:text-base brutal-border"
+              >
+                Hey, I'm
+              </motion.div>
+              {/* Mobile identity badge */}
+              <div className="lg:hidden flex items-center gap-2 bg-[#FACC15] brutal-border px-2.5 py-1 shadow-brutal-sm">
+                <div className="w-6 h-6 brutal-border overflow-hidden relative bg-white shrink-0">
+                  <img src="/images/profile.png" alt={personalInfo.name} className="w-full h-full object-cover object-top" />
+                </div>
+                <span className="font-mono font-bold text-xs uppercase text-black">Hafiz</span>
+              </div>
+            </div>
             
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4 text-black break-words"
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.95] sm:leading-[0.9] mb-4 text-black break-words"
             >
               {personalInfo.name}
             </motion.h1>
@@ -64,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="h-auto min-h-10 md:h-16 mb-6 flex items-center overflow-hidden"
+              className="h-auto min-h-10 md:h-16 mb-4 sm:mb-6 flex items-center overflow-hidden"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -73,7 +82,7 @@ export function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -40, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-white bg-[#2563EB] brutal-border px-3 py-2 sm:px-4 sm:py-2 inline-block"
+                  className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase text-white bg-[#2563EB] brutal-border px-3 py-1.5 sm:px-4 sm:py-2 inline-block shadow-brutal-sm"
                 >
                   {personalInfo.roles[currentRoleIndex]}
                 </motion.span>
@@ -84,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg md:text-xl font-medium max-w-xl mb-10 border-l-4 border-black pl-4 py-2 bg-white/50 backdrop-blur-sm"
+              className="text-base sm:text-lg md:text-xl font-medium max-w-xl mb-6 sm:mb-10 border-l-4 border-black pl-4 py-2 bg-white/80 backdrop-blur-xs"
             >
               {personalInfo.summary.split(".")[0]}.
             </motion.p>
@@ -93,16 +102,16 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
             >
               <a href="/resume/Hafiz_Abdullah_Resume.pdf" download className="w-full sm:w-auto">
-                <BrutalButton variant="accent-yellow" className="text-lg py-4 px-8 w-full sm:w-auto">
+                <BrutalButton variant="accent-yellow" className="text-base sm:text-lg py-3.5 sm:py-4 px-6 sm:px-8 w-full sm:w-auto">
                   <Download size={20} />
                   Download Resume
                 </BrutalButton>
               </a>
               <a href="#contact" className="w-full sm:w-auto">
-                <BrutalButton variant="primary" className="text-lg py-4 px-8 w-full sm:w-auto">
+                <BrutalButton variant="primary" className="text-base sm:text-lg py-3.5 sm:py-4 px-6 sm:px-8 w-full sm:w-auto">
                   Get In Touch
                   <ArrowRight size={20} />
                 </BrutalButton>
@@ -113,18 +122,19 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 mt-8"
+              className="flex items-center gap-3 sm:gap-4 mt-6 sm:mt-8"
             >
-              {socialLinks.slice(0, 3).map((link, i) => (
+              {socialLinks.slice(0, 3).map((link) => (
                 <a
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center brutal-border bg-white shadow-brutal hover:shadow-brutal-lg hover:-translate-y-1 hover:-translate-x-1 transition-all text-black hover:bg-black hover:text-white"
+                  className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center brutal-border bg-white shadow-brutal-sm hover:shadow-brutal hover:-translate-y-1 transition-all text-black hover:bg-black hover:text-white"
                   title={link.name}
+                  aria-label={link.name}
                 >
-                  <link.icon size={24} strokeWidth={2} />
+                  <link.icon size={22} strokeWidth={2} />
                 </a>
               ))}
             </motion.div>
@@ -132,19 +142,19 @@ export function Hero() {
 
           {/* Right Content - Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 2 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative z-10 flex justify-center lg:justify-end"
+            className="relative z-10 flex justify-center lg:justify-end mt-4 lg:mt-0"
           >
-            <div className="relative w-full max-w-[400px] aspect-square">
-              <div className="absolute inset-0 bg-[#FACC15] brutal-border -right-4 -bottom-4 translate-x-4 translate-y-4 -z-10" />
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] aspect-square mr-2 mb-2 sm:mr-4 sm:mb-4">
+              <div className="absolute inset-0 bg-[#FACC15] brutal-border translate-x-2.5 translate-y-2.5 sm:translate-x-4 sm:translate-y-4 -z-10" />
               <BrutalImage
                 src="/images/profile.png"
                 alt={personalInfo.name}
                 fill
                 priority
-                containerClassName="w-full h-full !rotate-0"
+                containerClassName="w-full h-full !rotate-0 bg-white"
                 imageClassName="object-cover object-top"
               />
             </div>
@@ -153,17 +163,17 @@ export function Hero() {
 
         {/* Stats Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-12 md:mt-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 sm:mt-12 md:mt-16"
         >
           {statistics.map((stat, idx) => (
-            <BrutalCard key={idx} className="p-4 md:p-6 flex flex-col items-center justify-center text-center group hover:bg-[#2563EB] hover:text-white transition-colors">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 flex items-center justify-center gap-2 group-hover:scale-110 transition-transform">
+            <BrutalCard key={idx} className="p-3.5 sm:p-5 md:p-6 flex flex-col items-center justify-center text-center group hover:bg-[#2563EB] hover:text-white transition-colors">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black mb-1 sm:mb-2 flex items-center justify-center gap-1.5 group-hover:scale-105 transition-transform">
                 {stat.value}
               </div>
-              <p className="font-mono text-[10px] sm:text-xs md:text-sm font-bold uppercase">
+              <p className="font-mono text-[10px] sm:text-xs md:text-sm font-bold uppercase leading-tight">
                 {stat.label}
               </p>
             </BrutalCard>
@@ -173,8 +183,8 @@ export function Hero() {
 
       <style jsx global>{`
         .dot-grid {
-          background-image: radial-gradient(#000 2px, transparent 2px);
-          background-size: 30px 30px;
+          background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+          background-size: 24px 24px;
           background-color: #F8F8F8;
         }
       `}</style>

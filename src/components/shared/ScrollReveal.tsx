@@ -22,7 +22,7 @@ export function ScrollReveal({
   staggerChildren = false,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
 
   const getVariants = () => {
     if (staggerChildren) {
@@ -31,7 +31,7 @@ export function ScrollReveal({
         visible: {
           opacity: 1,
           transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.08,
             delayChildren: delay,
           },
         },
@@ -39,10 +39,10 @@ export function ScrollReveal({
     }
 
     const directionOffsets = {
-      up: { y: 40, x: 0 },
-      down: { y: -40, x: 0 },
-      left: { x: 40, y: 0 },
-      right: { x: -40, y: 0 },
+      up: { y: 24, x: 0 },
+      down: { y: -24, x: 0 },
+      left: { y: 20, x: 0 },
+      right: { y: 20, x: 0 },
       none: { x: 0, y: 0 },
     };
 

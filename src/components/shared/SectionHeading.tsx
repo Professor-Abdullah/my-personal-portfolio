@@ -19,13 +19,13 @@ const colorMap = {
 
 export function SectionHeading({ title, className, color = "yellow" }: SectionHeadingProps) {
   return (
-    <div className={cn("mb-12 inline-block", className)}>
+    <div className={cn("mb-8 md:mb-12 inline-block", className)}>
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight relative z-10"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight relative z-10 inline-block pb-2"
       >
         {title}
         <motion.span 
@@ -34,7 +34,7 @@ export function SectionHeading({ title, className, color = "yellow" }: SectionHe
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           className={cn(
-            "absolute bottom-0 left-0 w-full h-4 md:h-6 -z-10 origin-left brutal-border",
+            "absolute bottom-0 left-0 w-full h-2.5 sm:h-3 md:h-4 -z-10 origin-left brutal-border",
             colorMap[color]
           )}
         />

@@ -133,12 +133,16 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    min-height: 100dvh;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Focus visible state for accessibility */
@@ -159,9 +163,14 @@
   border-radius: 0;
   transition-property: transform, box-shadow;
   transition-duration: 200ms;
-  &:hover {
-    box-shadow: var(--shadow-brutal-lg);
-    transform: translate(-0.25rem, -0.25rem) rotate(-1deg);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: var(--shadow-brutal-lg);
+      transform: translate(-0.25rem, -0.25rem) rotate(-1deg);
+    }
+  }
+  @media (max-width: 640px) {
+    box-shadow: 6px 6px 0px #000;
   }
 }
 
@@ -173,13 +182,18 @@
   text-transform: uppercase;
   transition-property: all;
   transition-duration: 200ms;
-  &:hover {
-    box-shadow: var(--shadow-brutal-lg);
-    transform: translate(-0.25rem, -0.25rem);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: var(--shadow-brutal-lg);
+      transform: translate(-0.25rem, -0.25rem);
+    }
   }
   &:active {
     transform: translate(0.25rem, 0.25rem);
     box-shadow: var(--shadow-brutal-sm);
+  }
+  @media (max-width: 640px) {
+    box-shadow: 4px 4px 0px #000;
   }
 }
 
@@ -195,5 +209,9 @@
   &:focus-visible {
     outline: none;
     box-shadow: var(--shadow-brutal-lg);
+  }
+  @media (max-width: 640px) {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+    box-shadow: 4px 4px 0px #000;
   }
 }

@@ -39,7 +39,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased bg-white text-black`}
       >
         <Navbar />
-        <main>{children}</main>
+        <main className="w-full overflow-x-clip">{children}</main>
         <Footer />
       </body>
     </html>

@@ -15,37 +15,37 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white relative">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="py-14 sm:py-20 md:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <ScrollReveal>
           <SectionHeading title="About Me" color="blue" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-4 sm:mt-8">
           {/* Left: Text & Summary */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <ScrollReveal delay={0.2}>
-              <div className="prose prose-lg max-w-none font-medium leading-relaxed border-l-4 border-black pl-6 py-2 mb-10">
-                <p className="text-xl md:text-2xl font-mono uppercase font-bold text-black mb-4">
+              <div className="prose prose-lg max-w-none font-medium leading-relaxed border-l-4 border-black pl-4 sm:pl-6 py-2 mb-8 sm:mb-10">
+                <p className="text-lg sm:text-xl md:text-2xl font-mono uppercase font-bold text-black mb-3 sm:mb-4">
                   Driven to solve complex problems with AI.
                 </p>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   {personalInfo.summary}
                 </p>
               </div>
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <div className="flex flex-col gap-6">
-                <h3 className="font-black text-2xl uppercase tracking-tight">Core Focus Areas</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-4 sm:gap-6">
+                <h3 className="font-black text-xl sm:text-2xl uppercase tracking-tight">Core Focus Areas</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {highlights.map((item, idx) => (
-                    <BrutalCard key={idx} className="p-4 flex items-start gap-4">
-                      <div className={`w-12 h-12 flex items-center justify-center brutal-border ${item.color} text-white shrink-0`}>
-                        <item.icon size={24} />
+                    <BrutalCard key={idx} className="p-3.5 sm:p-4 flex items-start gap-3.5 sm:gap-4">
+                      <div className={`w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center brutal-border ${item.color} text-white shrink-0`}>
+                        <item.icon size={22} />
                       </div>
                       <div>
-                        <h4 className="font-bold uppercase text-sm mb-1">{item.title}</h4>
+                        <h4 className="font-bold uppercase text-sm mb-0.5">{item.title}</h4>
                         <p className="text-xs font-mono text-gray-600">{item.desc}</p>
                       </div>
                     </BrutalCard>
