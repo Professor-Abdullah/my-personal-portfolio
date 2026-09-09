@@ -30,7 +30,7 @@ export function SkillTile({ name, icon: Icon, className, color = "yellow" }: Ski
       )}
     >
       {Icon && typeof Icon !== "string" && <Icon size={32} strokeWidth={1.5} />}
-      <span className="font-mono text-sm md:text-base font-bold text-center">
+      <span className="font-mono text-sm md:text-base font-bold text-center break-words leading-tight">
         {name}
       </span>
     </motion.div>

@@ -78,7 +78,7 @@ export function Projects() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mt-auto pt-6 border-t-4 border-black/10">
+                <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-6 border-t-4 border-black/10">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1">
                     <BrutalButton variant="primary" className="w-full text-sm">
                       <Code size={18} />

@@ -55,7 +55,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4 text-black"
+              className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4 text-black break-words"
             >
               {personalInfo.name}
             </motion.h1>
@@ -64,7 +64,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="h-12 md:h-16 mb-6 flex items-center overflow-hidden"
+              className="h-auto min-h-10 md:h-16 mb-6 flex items-center overflow-hidden"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -73,7 +73,7 @@ export function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -40, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-white bg-[#2563EB] brutal-border px-4 py-2 inline-block"
+                  className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-white bg-[#2563EB] brutal-border px-3 py-2 sm:px-4 sm:py-2 inline-block"
                 >
                   {personalInfo.roles[currentRoleIndex]}
                 </motion.span>
@@ -93,16 +93,16 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto"
             >
-              <a href="/resume/Hafiz_Abdullah_Resume.pdf" download>
-                <BrutalButton variant="accent-yellow" className="text-lg py-4 px-8">
+              <a href="/resume/Hafiz_Abdullah_Resume.pdf" download className="w-full sm:w-auto">
+                <BrutalButton variant="accent-yellow" className="text-lg py-4 px-8 w-full sm:w-auto">
                   <Download size={20} />
                   Download Resume
                 </BrutalButton>
               </a>
-              <a href="#contact">
-                <BrutalButton variant="primary" className="text-lg py-4 px-8">
+              <a href="#contact" className="w-full sm:w-auto">
+                <BrutalButton variant="primary" className="text-lg py-4 px-8 w-full sm:w-auto">
                   Get In Touch
                   <ArrowRight size={20} />
                 </BrutalButton>
@@ -156,14 +156,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-12 md:mt-20"
         >
           {statistics.map((stat, idx) => (
             <BrutalCard key={idx} className="p-4 md:p-6 flex flex-col items-center justify-center text-center group hover:bg-[#2563EB] hover:text-white transition-colors">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2 flex items-center justify-center gap-2 group-hover:scale-110 transition-transform">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 flex items-center justify-center gap-2 group-hover:scale-110 transition-transform">
                 {stat.value}
               </div>
-              <p className="font-mono text-xs md:text-sm font-bold uppercase">
+              <p className="font-mono text-[10px] sm:text-xs md:text-sm font-bold uppercase">
                 {stat.label}
               </p>
             </BrutalCard>

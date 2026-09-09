@@ -83,11 +83,12 @@ export function Navbar() {
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-6 border-l-4 border-black",
+          "fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-20 px-6 pb-8 overflow-y-auto",
+          "border-l-4 border-black",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <ul className="flex flex-col gap-6 text-2xl font-black uppercase tracking-tight">
+        <ul className="flex flex-col gap-5 text-xl sm:text-2xl font-black uppercase tracking-tight">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (
@@ -107,7 +108,7 @@ export function Navbar() {
           })}
         </ul>
         
-        <div className="mt-auto mb-12 flex flex-col gap-4">
+        <div className="mt-auto pt-10 flex flex-col gap-4">
           <a href="/resume/Hafiz_Abdullah_Resume.pdf" download className="w-full">
             <BrutalButton variant="accent-yellow" className="w-full py-4 text-lg">
               <Download size={20} />
